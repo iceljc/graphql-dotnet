@@ -9,15 +9,17 @@ public class StarWarsQuery : ObjectGraphType<object>
     {
         Name = "Query";
 
-        Field<CharacterInterface>("hero").ResolveAsync(async context => await data.GetDroidByIdAsync("3").ConfigureAwait(false));
-        Field<HumanType>("human")
-            .Argument<NonNullGraphType<StringGraphType>>("id", "id of the human")
-            .ResolveAsync(async context => await data.GetHumanByIdAsync(context.GetArgument<string>("id")).ConfigureAwait(false));
+        //Field<CharacterInterface>("hero").ResolveAsync(async context => await data.GetDroidByIdAsync("3").ConfigureAwait(false));
+        //Field<HumanType>("human")
+        //    .Argument<NonNullGraphType<StringGraphType>>("id", "id of the human")
+        //    .ResolveAsync(async context => await data.GetHumanByIdAsync(context.GetArgument<string>("id")).ConfigureAwait(false));
 
-        Func<IResolveFieldContext, string, Task<Droid>> func = (context, id) => data.GetDroidByIdAsync(id);
+        //Func<IResolveFieldContext, string, Task<Droid>> func = (context, id) => data.GetDroidByIdAsync(id);
 
-        Field<DroidType, string>("droid")
-            .Argument<NonNullGraphType<StringGraphType>>("id", "id of the droid")
-            .ResolveDelegate(func);
+        //Field<DroidType, string>("droid")
+        //    .Argument<NonNullGraphType<StringGraphType>>("id", "id of the droid")
+        //    .ResolveDelegate(func);
+
+        Field<PersonType>("hero").ResolveAsync(async context => await data.GetPersonAsync().ConfigureAwait(false));
     }
 }

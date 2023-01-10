@@ -9,7 +9,7 @@ public class StarWarsSchema : Schema
         : base(serviceProvider)
     {
         Query = serviceProvider.GetRequiredService<StarWarsQuery>();
-        Mutation = serviceProvider.GetRequiredService<StarWarsMutation>();
+        //Mutation = serviceProvider.GetRequiredService<StarWarsMutation>();
 
         Description = "Example StarWars universe schema";
     }

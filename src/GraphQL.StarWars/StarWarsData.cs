@@ -83,4 +83,9 @@ public class StarWarsData
     {
         return Task.FromResult(_characters.Where(c => guids.Contains(c.Id)).ToList());
     }
+
+    public Task<Person> GetPersonAsync()
+    {
+        return Task.FromResult(new Person() { Id = "1", Name = "Jim" });
+    }
 }

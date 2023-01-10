@@ -35,3 +35,22 @@ public class HumanType : ObjectGraphType<Human>
         Interface<CharacterInterface>();
     }
 }
+
+
+public class PersonType : ObjectGraphType<Person>
+{
+    public PersonType()
+    {
+        Name = "Person";
+
+        Field<NonNullGraphType<StringGraphType>>("id")
+            .Description("The id of the person.")
+            .Resolve(context => context.Source.Id);
+
+        Field<StringGraphType>("name")
+            .Description("The name of the person.")
+            .Resolve(context => context.Source.Name);
+
+        //Interface<PersonInterface>();
+    }
+}

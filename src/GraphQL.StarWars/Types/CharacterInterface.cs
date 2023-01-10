@@ -24,3 +24,19 @@ public class CharacterInterface : InterfaceGraphType<StarWarsCharacter>
             .Description("Which movie they appear in.");
     }
 }
+
+public class PersonInterface : InterfaceGraphType<PersonCharacter>
+{
+    public PersonInterface()
+    {
+        Name = "PersonInterface";
+
+        Field<NonNullGraphType<StringGraphType>>("id")
+            .Description("The id of the character.")
+            .Resolve(context => context.Source.Id);
+
+        Field<StringGraphType>("name")
+            .Description("The name of the character.")
+            .Resolve(context => context.Source.Name);
+    }
+}

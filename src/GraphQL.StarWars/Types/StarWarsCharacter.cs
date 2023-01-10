@@ -18,3 +18,13 @@ public class Droid : StarWarsCharacter
 {
     public string PrimaryFunction { get; set; }
 }
+
+public abstract class PersonCharacter
+{
+    public string Id { get; set; }
+    public string Name { get; set; }
+}
+
+public class Person : PersonCharacter
+{
+}
